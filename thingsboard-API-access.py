@@ -4,15 +4,14 @@ import json
 # Session object allows auth cookies to be managed
 s = requests.session()
 
-# payload to send the body of data in post request
-# payload = {'username': 'bjhoward5555@gmail.com', 'password': '4P2pABJ36JH4cJ@'}
 payload = {'temperature': 60} 
-# headers = {'Content-Type': 'application/json'}
 
-
+accessToken = HzPOXOov5Dy1LvSPyVGz
 # Base URL
-url = "https://thingsboard.cloud/api/v1/HzPOXOov5Dy1LvSPyVGz/telemetry"
+url = "https://thingsboard.cloud/api/v1/" + accessToken + "/telemetry"
+# post request
 r = s.post(url, data=json.dumps(payload))
 
+# should return a 200 status and empty content
 print(r)
 print(r.content)
